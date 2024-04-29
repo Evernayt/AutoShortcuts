@@ -1,22 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AutoShortcuts
 {
     internal static class Program
     {
-        /// <summary>
-        /// Главная точка входа для приложения.
-        /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
+            Program.LaunchedViaStartup = args != null && args.Any(arg => arg.Equals("startup", StringComparison.CurrentCultureIgnoreCase));
+
+            if (Environment.OSVersion.Version.Major >= 6)
+            {
+                SetProcessDPIAware();
+            }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new fmMain());
         }
+        public static bool LaunchedViaStartup { get; set; }
+
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern bool SetProcessDPIAware();
     }
 }
