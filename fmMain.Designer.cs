@@ -75,9 +75,9 @@
             this.lblCurrentMonth.ForeColor = System.Drawing.Color.Black;
             this.lblCurrentMonth.Location = new System.Drawing.Point(7, 5);
             this.lblCurrentMonth.Name = "lblCurrentMonth";
-            this.lblCurrentMonth.Size = new System.Drawing.Size(81, 28);
+            this.lblCurrentMonth.Size = new System.Drawing.Size(194, 28);
             this.lblCurrentMonth.TabIndex = 1;
-            this.lblCurrentMonth.Text = "Месяц:";
+            this.lblCurrentMonth.Text = "Месяц: не указано";
             // 
             // btnSettings
             // 
@@ -100,9 +100,9 @@
             this.lblInfo.ForeColor = System.Drawing.Color.Gray;
             this.lblInfo.Location = new System.Drawing.Point(8, 33);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(135, 20);
+            this.lblInfo.Size = new System.Drawing.Size(190, 20);
             this.lblInfo.TabIndex = 2;
-            this.lblInfo.Text = "Найденная папка:";
+            this.lblInfo.Text = "Папка месяца: не указано";
             this.lblInfo.Click += new System.EventHandler(this.lblInfo_Click);
             // 
             // pSettings

@@ -60,11 +60,12 @@ namespace AutoShortcuts
 
             if (string.IsNullOrEmpty(mainPath))
             {
-                DialogResult result = MessageBox.Show("Не указана основная папк.\nНажмите ОК, чтобы открыть настройки.",
+                DialogResult result = MessageBox.Show("Не указана основная папка.\nНажмите ОК, чтобы открыть настройки.",
                     Text, MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
                 if (result == DialogResult.OK)
                 {
+                    ShowForm();
                     btnSettings.PerformClick();
                 }
                 return;
@@ -272,7 +273,10 @@ namespace AutoShortcuts
 
         private void lblInfo_Click(object sender, EventArgs e)
         {
-            Process.Start(monthPath);
+            if (!string.IsNullOrEmpty(monthPath))
+            {
+                Process.Start(monthPath);
+            }
         }
 
         private void btnSelectMainPath_Click(object sender, EventArgs e)
